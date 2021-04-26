@@ -1,9 +1,14 @@
+import { Button } from 'bootstrap';
 import React from 'react';
 import {NavLink} from 'react-router-dom'
 
 const ButtonT  = () => {
     return (
-        <NavLink className="nav-link" to="/dashboard">dashboard</NavLink>
+        <button>
+            <NavLink className="nav-link" to="/dashboard">
+            dashboard
+            </NavLink>
+        </button>
     );
 }
  

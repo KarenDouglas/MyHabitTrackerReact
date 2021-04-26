@@ -1,21 +1,28 @@
-import React, { Component } from 'react';
-import LandingPage from './LandingPage';
+import React from 'react';
 import { Switch, Route, Redirect, withRouter } from 'react-router-dom';
+import LoginForm from './login';
+import SignUpForm from './signup';
+import ButtonT from './buttontemp';
+import Dashboard from './DashBoard';
 
 
-
-
+const LandingPage = () => {
+    return (
+        <React.Fragment>
+            <LoginForm/>
+            <SignUpForm/>
+            <ButtonT/>
+        </React.Fragment>
+    );
+}
 
 const Main = () => {
-    const LandingPage = () =>{
-        return(
-            <LandingPage/>
-        )
-    }
+    
     return (
         <Switch>
-            <Route path="/LandingPage" component= {LandingPage}/>
-            <Redirect to="/LandingPage"/>
+            <Route exact path="/landingpage" render={() => <LandingPage/> }/>
+            <Route exact path="/dashboard" render={ () => <Dashboard/>} />
+            <Redirect to="/landingpage"/>
         </Switch>
     );
 }

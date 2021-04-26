@@ -1,0 +1,33 @@
+*{
+   box-sizing: border-box;
+}
+.dashNav{
+
+margin: 0 15%;
+}
+.dashNavItem{
+    padding: 5px 50px;
+    display: block;
+    text-align: center;
+
+}
+
+
+
+
+@media screen and (min-width: 768px){
+  
+    
+    .flex-container{
+        display: flex;
+    }
+    
+    .dashNavItem{
+        text-decoration: none;
+        text-align: center;
+        width: 175px;
+
+    }
+
+
+}
