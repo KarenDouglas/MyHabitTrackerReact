@@ -1,10 +1,14 @@
 import React from "react";
+import DashboardGrid from "./DashboardGrid";
 import Header from "./Header";
 
 
 const Dashboard = () => {
     return (
-        <Header/>
+        <React.Fragment>
+            <Header/>
+            <DashboardGrid/>
+        </React.Fragment>
     );
 }
  

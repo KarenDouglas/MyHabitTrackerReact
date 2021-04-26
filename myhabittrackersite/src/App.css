@@ -12,7 +12,10 @@ margin: 0 15%;
 
 }
 
-
+.dbGrid > div{
+    border: solid black;
+    height: 200px;
+}
 
 
 @media screen and (min-width: 768px){
@@ -29,5 +32,12 @@ margin: 0 15%;
 
     }
 
+    .dbGrid{
+        display: grid;
+        grid-column-gap: 50px;
+        grid-template-columns: auto auto auto;
+        padding: 100px;
+    }
+    
 
 }
