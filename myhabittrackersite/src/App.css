@@ -2,13 +2,27 @@
    box-sizing: border-box;
 }
 .dashNav{
-
+background-color: gray;
 margin: 0 15%;
 }
 .dashNavItem{
     padding: 5px 50px;
     display: block;
     text-align: center;
+
+}
+.navbar{
+    background: gray;
+}
+.footDashNav{
+
+margin: auto;
+}
+.footNavItem{
+    padding: 5px 50px;
+    display: block;
+    text-align: center;
+    text-decoration: none;
 
 }
 
@@ -31,12 +45,25 @@ margin: 0 15%;
         width: 175px;
 
     }
+    .footDashNav{
+        background-color: gray;
+        height: 500px;
+    }
+    .footNavItem{
+        text-decoration: none;
+        text-align: center;
+        width: 300px;
+        border: solid black 1px;
+        margin: 50px auto ;
+
+    }
 
     .dbGrid{
         display: grid;
         grid-column-gap: 50px;
         grid-template-columns: auto auto auto;
         padding: 100px;
+        
     }
     
 
