@@ -1,8 +1,11 @@
 import React  from 'react';
-
+import { Button } from 'reactstrap';
+import {NavLink} from 'react-router-dom';
+import Login from './login';
 
 
 const SignUpForm = () => {
+  
         return (
             <form>
                 
@@ -25,14 +28,12 @@ const SignUpForm = () => {
                 <input className="form-control get-started" type="password" placeholder="Password"/>
                 <input className="form-control  get-started" type="password" placeholder="Confirm Password"/>
                 <p className="form-text text-center">By clicking the button below, you are indicating that you have read and agree to the Terms of Service and Privacy Policy.</p>
-                <a href="#" className="shinyButton btn btn-block  btn-primary">
+                <NavLink to="/dashboard" className="shinyButton btn btn-block nav-link btn-primary">
                 <span></span>
                 <span></span>
                 <span></span>
                 <span></span>
-                Submit</a>
-                
-               <p><a className="form-text text-center" href="htlogin.html">  Already have an accout? Log in!</a></p>
+                Submit</NavLink>
             </form>
         );
     

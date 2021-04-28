@@ -1,6 +1,6 @@
 import React, {useState}  from 'react';
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
-import {NavLink} from 'react-router-dom'
+import {NavLink} from 'react-router-dom';
 
 
 const LoginForm = (props) => {
@@ -39,12 +39,12 @@ const LoginForm = (props) => {
                 <input className="form-control get-started" type="text" placeholder="Username"/>
                 <input className="form-control get-started" type="password" placeholder="Password"/>
                 <p className="form-text text-center">By clicking the button below, you are indicating that you have read and agree to the Terms of Service and Privacy Policy.</p>
-                <a href="#" className="shinyButton btn btn-block  btn-primary">
+                <NavLink to="/dashboard" className="shinyButton btn btn-block nav-link btn-primary">
                 <span></span>
                 <span></span>
                 <span></span>
                 <span></span>
-                Submit</a>
+                Submit</NavLink>
                 
                <p><NavLink className="form-text text-center nav-link" to="/signup" >Don't Have an Account?  Sign up!</NavLink></p>
             </form>
