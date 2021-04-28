@@ -25,7 +25,7 @@ const  submitTodoHandler= (e) => {
         <React.Fragment>
         <form className="todo-form">
           <input value={todoInputText} onChange = {todoInputTextHandler} type="text" className="todo-input"/>
-          <button onClick={submitTodoHandler} className= "todo-button" type="submit"><i className="fa fa-plus-circle fa-lg"/></button>
+          <button onClick={submitTodoHandler} className= "todo-button" type="submit"><i className="fa fa-plus-square fa-lg"/></button>
         </form>
         </React.Fragment>
     );

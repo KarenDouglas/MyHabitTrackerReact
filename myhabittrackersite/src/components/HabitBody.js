@@ -14,6 +14,7 @@ const  HabitBody= ({habits, setHabits}) => {
                         key={habit.id}
                         habit={habit}
                         habitText={habit.text}
+                        habitCounter = {habit.counter}
                     />
                 )) }
             </ul>        

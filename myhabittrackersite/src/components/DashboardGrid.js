@@ -24,7 +24,7 @@ const DashboardGrid = () => {
                     setTodos={setTodos}
                 />
             </div>
-            <div className="habit">
+            <div className="habits-container">
                 <HabitHeader
                  habits={habits} 
                  setHabits= {setHabits} 
@@ -36,7 +36,7 @@ const DashboardGrid = () => {
                 setHabits={setHabits}
                 />
             </div>
-            <div className="stats">Stats</div>
+            <div className="stats"></div>
         </div>
     );
 }

@@ -141,3 +141,78 @@ background: #ff6f47;
     text-decoration: line-through;
     opacity: 0.5;
 }
+
+/* Habit Grid Styles */
+.habits-container{
+    padding: 0;
+    width: fit-content;
+    height: fit-content;
+  
+    
+    
+}
+.habit-form{
+   border: none;
+   display: flex;
+   margin-bottom: 10px;
+   
+}
+.habit-input{
+    padding: 10px 20px;
+    width: 100%;
+}
+.habit-button{
+    padding: 1rem;
+    color: pink;
+    background: red;
+    border: none;
+    font-size: 1rem;
+}
+.habit-button:hover{
+    padding: 1rem;   
+    color: red;
+    background: pink;
+    border: none;
+    transition: all 0.3s ease;
+    
+}
+
+
+
+.complete-btn, .delete-btn{
+background: #ff6f47;
+  color: white;
+  border: none;
+  padding: 1rem;
+  cursor: pointer;
+  font-size: 1rem;
+}
+.habit{
+    display: flex;
+    border-bottom: solid black 1px;
+}
+.habit-item{
+    padding: 10px 20px;
+    width: 100%;
+    text-align: center;
+}
+.habit-item:hover{
+    padding: 10px 20px;
+    width: 100%;
+    text-align: center;
+    
+}
+.completed{
+    text-decoration: line-through;
+    opacity: 0.5;
+}
+
+.streak-counter{
+    width: 55px;
+    height: fit-content;
+    font-size: medium;
+}
+.delete-habit{
+    height: fit-content;
+    font-size: medium;
+}

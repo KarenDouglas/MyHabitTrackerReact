@@ -1,36 +1,52 @@
-import React from "react";
+import React, {useState} from "react";
 
-const Habit = ({habitText, habits, setHabits, habit}) => {
+
+const Habit = ({habitText, habits, setHabits, habit,habitId,}) => {
+    const [habitCounter, sethabitCounter]= useState(0)
     //Events
     const deleteHandler = ()=> {
         setHabits(habits.filter((el) => el.id !== habit.id));
         console.log(habit)
     }
-    const completeHandler = () => {
-        setHabits(habits.map(item =>{
-            if (item.id === habit.id ){
-                return{
-                    ...item, completed: !item.completed
-                }
-            }
-            return item;
-        }))
-    }
+    
+
+    const addStreakHandler = e => {
+    
+        sethabitCounter(habitCounter+1);
+        
+      }
+      const deleteStreakHandler = e => {
+    
+        sethabitCounter(habitCounter- 1);
+        
+      }
+
+
+
+
     return (
         <div className="habit">
             <button 
                 className = "delete-btn"
-                onClick={deleteHandler}
+                onClick={ deleteStreakHandler}
             >
                 <i className="fa fa-minus-circle fa-lg"/>
             </button>
-            <li className={`habit-item ${habit.completed ? "completed": ""}`} >{habitText}</li>
+            <button className="delete-habit"
+             onClick={deleteHandler}
+            > 
+            <i className="fa fa-times-circle"/>
+            </button>
+            <li className={`habit-item ${habit.completed ? "completed": ""}`} >{`${habitText} ` }</li>
+            <button className="streak-counter"> <i className="fa fa-angle-double-right"/>{`${habitCounter}`}</button>
             <button 
                 className = "complete-btn"
-                onClick={completeHandler}
+                onClick={addStreakHandler}
+          
             >
-                <i className="fa fa-check-circle fa-lg"/>
+                <i className="fa fa-plus-circle fa-lg"/>
             </button>
+           
             
         </div>
     );

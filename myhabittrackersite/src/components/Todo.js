@@ -22,7 +22,7 @@ const Todo = ({todoText, todos, setTodos, todo}) => {
                 className = "delete-btn"
                 onClick={deleteHandler}
             >
-                <i className="fa fa-minus-circle fa-lg"/>
+                <i className="fa fa-times-circle fa-lg"/>
             </button>
             <li className={`todo-item ${todo.completed ? "completed": ""}`} >{todoText}</li>
             <button 
