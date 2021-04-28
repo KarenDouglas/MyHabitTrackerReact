@@ -3,6 +3,7 @@ import TodoHeader from "./TodoHeader";
 import TodoBody from "./TodoBody";
 import HabitHeader from "./HabitHeader"
 import HabitBody from "./HabitBody"
+import Stats from "./stats"
 
 
 const DashboardGrid = () => {
@@ -36,7 +37,9 @@ const DashboardGrid = () => {
                 setHabits={setHabits}
                 />
             </div>
-            <div className="stats"></div>
+            <div className="stats">
+                <Stats/>
+            </div>
         </div>
     );
 }

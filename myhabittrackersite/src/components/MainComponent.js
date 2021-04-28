@@ -5,14 +5,17 @@ import SignUpForm from './signup';
 import ButtonT from './buttontemp';
 import Dashboard from './DashBoard';
 import Footer from './Footer'
+import LandingHeader from './LandingHeader';
+import Features from "./Features";
 
 
 const LandingPage = () => {
+   
     return (
         <React.Fragment>
-            <LoginForm/>
+            <LandingHeader/>
+            <Features/>
             <SignUpForm/>
-            <ButtonT/>
         </React.Fragment>
     );
 }
@@ -24,6 +27,8 @@ const Main = () => {
         <Switch>
             <Route exact path="/landingpage" render={() => <LandingPage/> }/>
             <Route exact path="/dashboard" render={ () => <Dashboard/>} />
+            <Route exact path="/login" render={ () => <LoginForm/>} />
+            <Route exact path="/signup" render={ () => <SignUpForm/>} />
             <Redirect to="/landingpage"/>
         </Switch>
         <Footer/>

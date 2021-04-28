@@ -4,6 +4,17 @@
    box-sizing: border-box;
 }
 
+
+
+
+
+
+
+
+
+
+
+
 /* DashBoard Nav styles */
 .dashNav{
 background-color: gray;
@@ -72,6 +83,18 @@ margin: auto;
         grid-column-gap: 20px;
         grid-template-columns: 1fr 1fr 1fr;
         
+    }
+    /* Landing Page Navbar styles */
+    .landingNav{
+     margin: 0 15%;
+    }
+    .landingNavItem{
+        text-decoration: none;
+        text-align: center;
+        width: 175px;
+    }
+    .login-button{
+      margin: 0 %; 
     }
     
 
@@ -215,4 +238,16 @@ background: #ff6f47;
 .delete-habit{
     height: fit-content;
     font-size: medium;
+}
+
+/* Stats Grid Styles */
+.place-holder{
+    width: 277px;
+    height: 258px;
+    text-align: center;
+}
+.place-holder-content{
+    text-align: center;
+   width: 100%;
+   height: 100%;
 }

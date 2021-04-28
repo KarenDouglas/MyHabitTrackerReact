@@ -1,10 +1,26 @@
-import React  from 'react';
+import React, {useState}  from 'react';
+import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
+import {NavLink} from 'react-router-dom'
 
 
+const LoginForm = (props) => {
+    const {
+        loginButton,
+        className
+      } = props;
 
-const LoginForm = () => {
+    const [modal, setModal] = useState(false);
+
+    const toggle = () => setModal(!modal);
+
         return (
-            <form>
+            <React.Fragment>
+            <div>
+      <Button onClick={toggle}>Login</Button>
+      <Modal isOpen={modal} toggle={toggle} className={className}>
+        <ModalHeader toggle={toggle}>Login</ModalHeader>
+        <ModalBody>
+        <form>
                 
                 <a href="#" className="shinyButton btn btn-block btn-primary ">
                 <span></span>
@@ -30,8 +46,19 @@ const LoginForm = () => {
                 <span></span>
                 Submit</a>
                 
-               <p><a className="form-text text-center" >  Already have an accout? Log in!</a></p>
+               <p><NavLink className="form-text text-center nav-link" to="/signup" >Don't Have an Account?  Sign up!</NavLink></p>
             </form>
+        </ModalBody>
+        <ModalFooter>
+        <NavLink className="nav-link" to="/dashboard">
+          <Button color="primary">Login</Button>{' '}
+        </NavLink>
+          <Button color="secondary" onClick={toggle}>Cancel</Button>
+        </ModalFooter>
+      </Modal>
+    </div>
+            
+            </React.Fragment>
         );
     
 };
