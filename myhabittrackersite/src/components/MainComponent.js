@@ -15,7 +15,6 @@ const LandingPage = () => {
         <React.Fragment>
             <LandingHeader/>
             <Features/>
-            <SignUpForm/>
         </React.Fragment>
     );
 }

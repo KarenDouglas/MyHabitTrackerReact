@@ -16,7 +16,7 @@ const LoginForm = (props) => {
         return (
             <React.Fragment>
             <div>
-      <Button onClick={toggle}>Login</Button>
+      <button className="login-button"  onClick={toggle}>Login</button>
       <Modal isOpen={modal} toggle={toggle} className={className}>
         <ModalHeader toggle={toggle}>Login</ModalHeader>
         <ModalBody>
