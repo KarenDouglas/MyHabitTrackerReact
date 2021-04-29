@@ -26,19 +26,19 @@ const Habit = ({habitText, habits, setHabits, habit,habitId,}) => {
 
     return (
         <div className="habit">
+            <button className="delete-habit"
+             onClick={deleteHandler}
+            > 
+            <i className="fa fa-times-circle"/>
+            </button>
             <button 
                 className = "delete-btn"
                 onClick={ deleteStreakHandler}
             >
                 <i className="fa fa-minus-circle fa-lg"/>
             </button>
-            <button className="delete-habit"
-             onClick={deleteHandler}
-            > 
-            <i className="fa fa-times-circle"/>
-            </button>
+            
             <li className={`habit-item ${habit.completed ? "completed": ""}`} >{`${habitText} ` }</li>
-            <button className="streak-counter"> <i className="fa fa-angle-double-right"/>{`${habitCounter}`}</button>
             <button 
                 className = "complete-btn"
                 onClick={addStreakHandler}
@@ -46,6 +46,8 @@ const Habit = ({habitText, habits, setHabits, habit,habitId,}) => {
             >
                 <i className="fa fa-plus-circle fa-lg"/>
             </button>
+            <button className="streak-counter"> <i className="fa fa-angle-double-right"/>{`${habitCounter}`}</button>
+
            
             
         </div>

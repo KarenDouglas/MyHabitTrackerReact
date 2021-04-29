@@ -13,11 +13,11 @@ const LandingHeader = () => {
         <React.Fragment>
             
                 <Jumbotron fluid>
-                    <h1><i className="fa fa-tasks"/> Habit / Tracker</h1>
+                    <h1><i className="fa fa-check-square"/> Habit / Tracker</h1>
                 </Jumbotron>
             <div className="sticky-top">
                 <Navbar color="faded" expand="md" className="" >
-                    <NavbarBrand href="/" className="mr-auto brand"> <i className="fa fa-tasks" /> </NavbarBrand>
+                    <NavbarBrand href="/" className="mr-auto brand"> <i className="fa fa-check-square fa-lg" /> </NavbarBrand>
                     <NavbarToggler onClick={toggle} className="mr-2 navbar-dark" />
                         <Collapse isOpen={isOpen} navbar>
                         <Nav navbar className="landingNav">

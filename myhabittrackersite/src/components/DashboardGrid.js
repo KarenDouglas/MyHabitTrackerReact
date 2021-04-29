@@ -13,7 +13,11 @@ const DashboardGrid = () => {
     const [habits, setHabits]= useState([]);
     return (
         <div className="dbGrid">
+            <div className='grid-title'> <h3>Todos</h3></div>
+                <div className='grid-title'><h3>Habits</h3></div>
+                <div className='grid-title'><h3>stats</h3></div>
             <div className="todos-container">
+                
                 <TodoHeader 
                     todos={todos} 
                     setTodos= {setTodos} 

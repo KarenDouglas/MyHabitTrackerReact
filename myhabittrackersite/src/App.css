@@ -112,7 +112,8 @@ padding: 10rem;
 
 /* DashBoard Nav styles */
 .dashNav{
-background-color: gray;
+background-color: black;
+color: rgb(255, 0, 255);
 margin: 0 15%;
 }
 .dashNavItem{
@@ -125,26 +126,28 @@ margin: 0 15%;
 
 /* Footer Nav */
 .footDashNav{
-    background-image: linear-gradient(#c2a2f3, #30115f);    
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 1000'%3E%3Cg %3E%3Ccircle fill='%23330055' cx='50' cy='0' r='50'/%3E%3Cg fill='%233a015d' %3E%3Ccircle cx='0' cy='50' r='50'/%3E%3Ccircle cx='100' cy='50' r='50'/%3E%3C/g%3E%3Ccircle fill='%23410165' cx='50' cy='100' r='50'/%3E%3Cg fill='%2348026e' %3E%3Ccircle cx='0' cy='150' r='50'/%3E%3Ccircle cx='100' cy='150' r='50'/%3E%3C/g%3E%3Ccircle fill='%23500376' cx='50' cy='200' r='50'/%3E%3Cg fill='%2357047e' %3E%3Ccircle cx='0' cy='250' r='50'/%3E%3Ccircle cx='100' cy='250' r='50'/%3E%3C/g%3E%3Ccircle fill='%235f0587' cx='50' cy='300' r='50'/%3E%3Cg fill='%2367068f' %3E%3Ccircle cx='0' cy='350' r='50'/%3E%3Ccircle cx='100' cy='350' r='50'/%3E%3C/g%3E%3Ccircle fill='%236f0798' cx='50' cy='400' r='50'/%3E%3Cg fill='%237707a0' %3E%3Ccircle cx='0' cy='450' r='50'/%3E%3Ccircle cx='100' cy='450' r='50'/%3E%3C/g%3E%3Ccircle fill='%238008a9' cx='50' cy='500' r='50'/%3E%3Cg fill='%238909b1' %3E%3Ccircle cx='0' cy='550' r='50'/%3E%3Ccircle cx='100' cy='550' r='50'/%3E%3C/g%3E%3Ccircle fill='%239109ba' cx='50' cy='600' r='50'/%3E%3Cg fill='%239a09c3' %3E%3Ccircle cx='0' cy='650' r='50'/%3E%3Ccircle cx='100' cy='650' r='50'/%3E%3C/g%3E%3Ccircle fill='%23a309cb' cx='50' cy='700' r='50'/%3E%3Cg fill='%23ad09d4' %3E%3Ccircle cx='0' cy='750' r='50'/%3E%3Ccircle cx='100' cy='750' r='50'/%3E%3C/g%3E%3Ccircle fill='%23b608dc' cx='50' cy='800' r='50'/%3E%3Cg fill='%23c007e5' %3E%3Ccircle cx='0' cy='850' r='50'/%3E%3Ccircle cx='100' cy='850' r='50'/%3E%3C/g%3E%3Ccircle fill='%23c905ee' cx='50' cy='900' r='50'/%3E%3Cg fill='%23d303f6' %3E%3Ccircle cx='0' cy='950' r='50'/%3E%3Ccircle cx='100' cy='950' r='50'/%3E%3C/g%3E%3Ccircle fill='%23D0F' cx='50' cy='1000' r='50'/%3E%3C/g%3E%3C/svg%3E");
+    
     height: 500px;
 margin: auto;
 border-top: black solid .5px;
 }
 .footNavItem{
-    padding: 5px 50px;
-    display: block;
-    text-align: center;
     text-decoration: none;
-    color: #30115f;
-
+    text-align: center;
+    width: 300px;
+    margin: 50px auto ;
+    color: white;
+    font-weight: 800;
 }
 /* Dashboard Grid Styles */
 
 .dbGrid > div{
-    border: solid black;
-    width: fit-content;
-    height: fit-content;
     margin: 10px auto;
+  
+}
+.dbGrid{
+    background-color:blueviolet
 }
 
 /* Big screen styles  */
@@ -163,7 +166,6 @@ border-top: black solid .5px;
     }
     .footDashNav{
 
-        background-image: linear-gradient(#c2a2f3, #30115f);   
         height: 500px;
     }
     .footNavItem{
@@ -171,7 +173,6 @@ border-top: black solid .5px;
         text-align: center;
         width: 300px;
         margin: 50px auto ;
-        color: black;
         font-weight: 800;
     }
 
@@ -187,9 +188,7 @@ border-top: black solid .5px;
 }
 /* Todo Grid Styles */
 .todos-container{
-    padding: 0;
-    width: fit-content;
-    height: fit-content;
+   width: fit-content;
   
     
     
@@ -197,7 +196,6 @@ border-top: black solid .5px;
 .todo-form{
    border: none;
    display: flex;
-   margin-bottom: 10px;
    
 }
 .todo-input{
@@ -206,15 +204,15 @@ border-top: black solid .5px;
 }
 .todo-button{
     padding: 1rem;
-    color: pink;
-    background: red;
+    color: #5f0a86;
+    background: rgb(7, 195, 252);
     border: none;
     font-size: 1rem;
 }
 .todo-button:hover{
     padding: 1rem;   
-    color: red;
-    background: pink;
+    color:  #5f0a86;
+    background: rgb(240, 187, 14);
     border: none;
     transition: all 0.3s ease;
     
@@ -239,6 +237,7 @@ background: #ff6f47;
     padding: 10px 20px;
     width: 100%;
     text-align: center;
+    background-color: white;
 }
 .todo-item:hover{
     padding: 10px 20px;
@@ -263,7 +262,6 @@ background: #ff6f47;
 .habit-form{
    border: none;
    display: flex;
-   margin-bottom: 10px;
    
 }
 .habit-input{
@@ -273,7 +271,8 @@ background: #ff6f47;
 .habit-button{
     padding: 1rem;
     color: pink;
-    background: red;
+    color: #5f0a86;
+    background: rgb(7, 195, 252);
     border: none;
     font-size: 1rem;
 }
@@ -287,7 +286,6 @@ background: #ff6f47;
 }
 
 
-
 .complete-btn, .delete-btn{
 background: #ff6f47;
   color: white;
@@ -296,34 +294,56 @@ background: #ff6f47;
   cursor: pointer;
   font-size: 1rem;
 }
+.complete-btn{
+    background: rgb(0, 109, 128);
+    color: yellow;
+}
+.complete-btn:hover{
+    background: yellow;
+    color: rgb(0, 109, 128);
+}
+.delete-btn{
+    background: red;
+    color:rgb(38, 241, 214);
+}
+.delete-btn:hover{
+    background: rgb(38, 241, 214);
+    color:red;
+}
 .habit{
     display: flex;
-    border-bottom: solid black 1px;
+    border-top: solid black 1px;
 }
 .habit-item{
     padding: 10px 20px;
     width: 100%;
     text-align: center;
+    background-color: white;
 }
 .habit-item:hover{
     padding: 10px 20px;
     width: 100%;
     text-align: center;
+    border-bottom: solid black 1px;
     
 }
 .completed{
     text-decoration: line-through;
     opacity: 0.5;
+    background-color: white;
 }
 
 .streak-counter{
     width: 55px;
     height: fit-content;
     font-size: medium;
+    background-color: white;
 }
 .delete-habit{
     height: fit-content;
     font-size: medium;
+    background-color: orange;
+    color: white;
 }
 
 /* Stats Grid Styles */
@@ -375,7 +395,7 @@ input[type= "email"],input[placeholder="Username"], input[type= "password"]{
 }
 
 input::-webkit-input-placeholder {
-    color: white !important;
+    color: black !important;
     }
 
 .shinyButton{
@@ -470,4 +490,19 @@ input::-webkit-input-placeholder {
         height: 100%;
         transform: translateY(-100%);
         }
-       
+        
+        .grid-title{
+            background-color: black;
+            width: 275px;
+            text-align: left;
+            border: darkblue solid .5px;
+            padding: 10px;
+            color: rgb(255, 0, 255);
+            margin-bottom: 0;
+            
+        }
+
+        input[placeholder="Add Task"]{
+            background-color: white;
+        }
+        

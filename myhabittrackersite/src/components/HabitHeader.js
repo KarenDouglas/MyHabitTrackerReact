@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React from "react";
 
 
 
@@ -24,7 +24,7 @@ const  submitHabitHandler= (e) => {
       
         <React.Fragment>
         <form className="habit-form">
-          <input value={habitInputText} onChange = {habitInputTextHandler} type="text" className="habit-input"/>
+          <input value={habitInputText} placeholder="Enter New Habit" onChange = {habitInputTextHandler} type="text" className="habit-input"/>
           <button onClick={submitHabitHandler} className= "habit-button" type="submit"><i className="fa fa-plus-square fa-lg"/></button>
         </form>
         </React.Fragment>

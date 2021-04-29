@@ -12,16 +12,16 @@ const Header = (props) => {
            <Jumbotron fluid>
                <h1>Habit / Tracker</h1>
            </Jumbotron>
-           <div>
-           <Navbar color="faded" light expand="md">
-            <NavbarBrand href="/" className="mr-auto">Habit / Tracker</NavbarBrand>
-            <NavbarToggler onClick={toggle} className="mr-2" />
+           <div className='sticky-top'>
+           <Navbar color="faded" expand="md">
+            <NavbarBrand href="/" className="mr-auto brand">Habit / Tracker</NavbarBrand>
+            <NavbarToggler onClick={toggle} className="mr-2 navbar-dark" />
                 <Collapse isOpen={isOpen} navbar>
-                <Nav navbar className="dashNav">
+                <Nav navbar className="dashNav brand">
                     <div className="flex-container">
-                        <NavLink className= "dashNavItem nav-link" to="/dashboard">Tasks</NavLink>
-                        <NavLink className= "dashNavItem nav-link" to="/dashboard">Rewards</NavLink>
-                        <NavLink className= "dashNavItem nav-link" to="/dashboard">Help</NavLink>
+                        <NavLink className= "dashNavItem nav-link brand" to="/dashboard">Tasks</NavLink>
+                        <NavLink className= "dashNavItem nav-link brand" to="/dashboard">Rewards</NavLink>
+                        <NavLink className= "dashNavItem nav-link brand" to="/dashboard">Help</NavLink>
                     </div>
                 </Nav>
                 </Collapse>
