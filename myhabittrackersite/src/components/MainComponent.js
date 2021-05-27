@@ -2,11 +2,11 @@ import React from 'react';
 import { Switch, Route, Redirect, withRouter } from 'react-router-dom';
 import LoginForm from './login';
 import SignUpForm from './signup';
-import ButtonT from './buttontemp';
 import Dashboard from './DashBoard';
 import Footer from './Footer'
 import LandingHeader from './LandingHeader';
 import Features from "./Features";
+
 
 
 const LandingPage = () => {
@@ -35,4 +35,4 @@ const Main = () => {
     );
 }
  
-export default Main ;
+export default withRouter((Main));

@@ -186,9 +186,11 @@ border-top: black solid .5px;
     
 
 }
+
 /* Todo Grid Styles */
 .todos-container{
    width: fit-content;
+   
   
     
     
@@ -348,8 +350,7 @@ background: #ff6f47;
 
 /* Stats Grid Styles */
 .place-holder{
-    width: 277px;
-    height: 258px;
+   
     text-align: center;
 }
 .place-holder-content{
@@ -360,6 +361,11 @@ background: #ff6f47;
 .new-link{
     border: none;
     background: transparent;
+}
+.stats{
+    padding: 0;
+    width: fit-content;
+    height: fit-content;
 }
 /* Sign up form styles */
 .hr {
@@ -498,7 +504,8 @@ input::-webkit-input-placeholder {
             border: darkblue solid .5px;
             padding: 10px;
             color: rgb(255, 0, 255);
-            margin-bottom: 0;
+            margin-bottom: 1rem;
+            
             
         }
 
