@@ -3,7 +3,7 @@ import Todo from "./Todo"
 
 
 
-const  TodoBody= ({todos, setTodos}) => {
+const  TodoBody= ({todos, setTodos,setTodosInputText, todosInputText }) => {
     return (
         <div className="todo-container">
             <ul className ="todo-list">
@@ -17,7 +17,7 @@ const  TodoBody= ({todos, setTodos}) => {
                     />
                 )) }
             </ul>        
-        </div>  
+        </div>   
     );
 }
  

@@ -1,24 +1,24 @@
-import * as ActionTypes from './ActionTypes';
 
-export const Todo = (state = Todo, action) => {
-    switch (action.type) {
+
+const TodoReducers =  (state= {todos: []}, action) =>{
+    switch(action.type) {
+        case "ADD_TODO":
+            return {todos: action.payload};
+
+        case "REMOVE_TODO":
+            return {todos: action.payload};
+
         default:
             return state;
     }
-};
-export const Todos = (state ={errMess: null, todos: []}, action) => {
-    switch (action.type) {
-        case ActionTypes.ADD_TODOS:
-            return {...state, errMess: null, todos: action.payload};
+}
 
-        case ActionTypes.TODOS_FAILED:
-            return {...state, errMess: action.payload};
 
-        case ActionTypes.ADD_TODO:
-            const todo = action.payload;
-            todo.completed= false;
-            return {...state, todos: state.todos.concat(todo)};
-        default:
-            return state;
-    }
-};
+
+export default TodoReducers;
+
+
+
+
+
+
