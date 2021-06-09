@@ -1,22 +1,15 @@
-import * as ActionTypes from './ActionTypes';
 import { baseUrl } from '../shared/baseUrl';
 
-export const postTodos = (todosInputText) => dispatch => {
-    
-    const newTodo = {
-        todosInputText, 
-    };
-    newTodo.date = new Date().toISOString();
+export const ADD_TODO = "ADD_TODO";
+export const POST_TODO = "POST_TODO";
 
-    return fetch(baseUrl + 'todos', {
-        method: "POST",
-        body: JSON.stringify(newTodo),
-        headers: {
-            "Content-Type": "application/json"
-        }
-    })
-    
-    .then(response => response.json())
-    .then(response => dispatch(postTodos(response)));
-    
-};
+export const addTodo = (todos) => ({
+  type: ADD_TODO,
+  payload: todos,
+});
+
+export const postTodo =(todoList) => ({
+  type: POST_TODO,
+  payload: todoList,
+});
+

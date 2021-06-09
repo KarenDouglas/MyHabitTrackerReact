@@ -1,11 +1,12 @@
-import {createStore, combineReducers,applyMiddleware} from 'redux';
-import { InitialFeedback } from './todoForms';
+import {createStore,applyMiddleware, combineReducers} from 'redux';
 import thunk from 'redux-thunk';
-import logger from 'redux-logger';
-import { composeWithDevTools } from 'redux-devtools-extension';
-import TodoReducers from "./TodoReducers"
+import {TodoReducers} from "./TodoReducers"
 
 
- const store = createStore(TodoReducers, applyMiddleware(thunk))
+const reducer= combineReducers({
+    todoReducer: TodoReducers
+})
+
+ const store = createStore(reducer, applyMiddleware(thunk))
 
  export default store;

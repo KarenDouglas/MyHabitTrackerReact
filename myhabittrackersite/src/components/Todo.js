@@ -1,15 +1,18 @@
 import { data } from "jquery";
 import React from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { completeTodo, deleteTodo } from "../actions/actions";
+
 
 const Todo = ({todoText, todos, setTodos, todo,  todoId, todoInputText, completed, setCompleted}) => {
 
-    
+    const dispatch = useDispatch();
+
     //Events
     const deleteHandler = ()=> {
         setTodos(todos.filter((el) => el.id !== todo.id));
-       fetch("http://localhost:8001/todos/"+ todo.id, {
-        method: "DELETE"
-       })
+        const id=todo.id
+       dispatch(deleteTodo(id))
     }
     const completeHandler = () => {
         setTodos(todos.map(item =>{
@@ -29,13 +32,26 @@ const Todo = ({todoText, todos, setTodos, todo,  todoId, todoInputText, complete
         fetch("http://localhost:8001/todos/" + todo.id , cb)
             
         
+    }
+        
+        const reduxComplete = () => {
+            setTodos(todos.map(item =>{
+                if (item.id === todo.id ){
+                    return{
+                        ...item, completed: !item.completed
+                    }
+                }
+                return item;
+            }));
+            const id = todo.id
 
-        
-        
+            dispatch(completeTodo(id, completed))
+
+        }
                
                 
 
-    }
+    
     return (
         <div className="todo">
             <button 
@@ -48,7 +64,7 @@ const Todo = ({todoText, todos, setTodos, todo,  todoId, todoInputText, complete
             <button 
                 
                 className = "complete-btn"
-                onClick={completeHandler}
+                onClick={reduxComplete}
             >
                 <i className="fa fa-check-circle fa-lg"/>
             </button>

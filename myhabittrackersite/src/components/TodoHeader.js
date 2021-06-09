@@ -1,7 +1,8 @@
 import React, { useState, useEffect} from "react";
 import { Control, LocalForm} from 'react-redux-form';
-import {todos, SET_TODOS_INPUT_TEXT} from "../redux/todos";
-import { AddTodoAction } from "../actions/TodoActions";
+import { useSelector, useDispatch } from "react-redux";
+import {postTodo} from "../actions/actions"
+import { post } from "jquery";
 
 
 // function handleChange(e) {
@@ -85,22 +86,35 @@ const TodoHeader = ({setTodoInputText, todos, setTodos, todoInputText, completed
 const todoInputTextHandler =(e) =>{
     console.log(e.target.value);
     setTodoInputText(e.target.value)
-
+   
 }
 
-const  submitTodoHandler= (e) => {
-        e.preventDefault();
-        setTodos([...todos, {text: todoInputText, completed: false }]);
-        const todo= { text: todoInputText, completed};
-        fetch("http://localhost:8001/todos",{
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify(todo)
-        })
+// const  submitTodoHandler= (e) => {
+//     e.preventDefault()
+//         setTodos([...todos, {text: todoInputText, completed: false }]);
+//         const todo= { text: todoInputText, completed};
+//         fetch("http://localhost:8001/todos",{
+//             method: "POST",
+//             headers: { "Content-Type": "application/json" },
+//             body: JSON.stringify(todo)
+//         })
+//         setTodoInputText("");
+// };
 
-        console.log(todo)
-        setTodoInputText("");
-};
+
+
+const dispatch = useDispatch();
+
+const  ReduxTodo= (e) => {
+    e.preventDefault();
+    setTodos([...todos, {text: todoInputText, completed: false }]);
+    //const todo= todoInputText;
+    const text = todoInputText
+dispatch(postTodo( text, completed))
+setTodoInputText("");
+   
+}
+ 
  
 
 
@@ -110,10 +124,12 @@ const  submitTodoHandler= (e) => {
         <React.Fragment>
         <form className="todo-form">
           <input placeholder= "Enter New Todo" value={todoInputText} onChange = {todoInputTextHandler} type="text" className="todo-input"/>
-          <button onClick={submitTodoHandler} className= "todo-button" type="submit"><i className="fa fa-plus-circle fa-lg"/></button>
+          <button onClick={ReduxTodo} className= "todo-button" type="submit"><i className="fa fa-plus-circle fa-lg"/></button>
         </form>
         </React.Fragment>
     );
 }
  
 export default TodoHeader;
+
+

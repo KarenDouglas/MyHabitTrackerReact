@@ -3,7 +3,7 @@ import React from "react";
 
 
 
-const HabitHeader = ({setHabitInputText, habits, setHabits, habitInputText}) => {
+const HabitHeader = ({setHabitInputText, habits, setHabits, habitInputText, hCompleted, setHCompleted,habitCounter, sethabitCounter, dailyStreak, setDailyStreak}) => {
 
 const habitInputTextHandler =(e) =>{
     console.log(e.target.value);
@@ -13,8 +13,18 @@ const habitInputTextHandler =(e) =>{
 
 const  submitHabitHandler= (e) => {
         e.preventDefault();
-        setHabits([...habits, {text: habitInputText, counter: 0, completed: false, id: Math.random()*1000 }]);
+        setHabits([...habits, {text: habitInputText, counter:0, hCompleted: false, dailyStreak: 0}]);
+        const habit= { text: habitInputText, hCompleted,  habitCounter, dailyStreak};
+        fetch("http://localhost:8001/habits",{
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(habit)
+        })
+
+        console.log(habit)
         setHabitInputText("");
+        sethabitCounter(0) 
+        setDailyStreak(0)       
 };
  
 

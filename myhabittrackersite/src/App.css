@@ -261,6 +261,11 @@ background: #ff6f47;
     
     
 }
+.green{
+    background: lightgreen;
+    opacity: 0.5;
+
+}
 .habit-form{
    border: none;
    display: flex;

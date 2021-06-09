@@ -3,18 +3,20 @@ import Habit from "./Habit"
 
 
 
-const  HabitBody= ({habits, setHabits}) => {
+const  HabitBody= ({habits, setHabits, sethabitCounter, habitCounter, dailyStreak,setDailyStreak, habitInputText}) => {
     return (
         <div className="habit-container">
-            <ul className ="habit-list">
+            <ul key={habits.id} className ="habit-list">
                 {habits.map(habit => (
                     <Habit 
                         setHabits={setHabits}
                         habits={habits}
-                        key={habit.id}
                         habit={habit}
                         habitText={habit.text}
-                        habitCounter = {habit.counter}
+                        habitCounter = {habitCounter}
+                        sethabitCounter={sethabitCounter}
+                        dailyStreak={dailyStreak}
+                        setDailyStreak={setDailyStreak}
                     />
                 )) }
             </ul>        
