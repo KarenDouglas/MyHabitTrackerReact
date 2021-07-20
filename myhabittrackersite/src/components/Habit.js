@@ -1,101 +1,124 @@
 import React, {useState, useEffect} from "react";
-import DashboardGrid from "./DashboardGrid";
+import {  useSelector,useDispatch } from "react-redux";
+import { addStreak, addHabits, fetchHabits,deleteStreak, deleteHabit, deleteDailyStreak } from "../actions/habits";
+import moment from 'moment';
 
 
-const Habit = ({habitText, habits, setHabits, habit,habitId, habitInputText}) => {
-    //Events
-    const [habitCounter, sethabitCounter]= useState(0)
-    const[dailyStreak, setDailyStreak]= useState(0)
-    
+
+const Habit = ({habitText, habits, setHabits, habit, points, setPoints}) => {
+
+    const dispatch = useDispatch();
 
     
     const deleteHandler = ()=> {
         setHabits(habits.filter((el) => el.id !== habit.id));
-        console.log(habit)
-        fetch("http://localhost:8001/habits/"+ habit.id, {
-            method: "DELETE"
-           })
+       dispatch(deleteHabit(habit.id));
+
+       setTimeout( ()=> {
+        fetch('http://localhost:8001/habits/')
+        .then(response => {
+            if (response.ok) {
+                return response;
+            } else {
+                const error = new Error(`Error ${response.status}: ${response.statusText}`);
+                error.response = response;
+                throw error;
+            }
+        },
+    error => {
+        const errMess = new Error(error.message);
+        throw errMess;
+    })
+        
+        .then(response => 
+            response.json()
+        )
+        .then(habits => {
+            setHabits(habits);
+        })
+        .then(habits => { 
+            dispatch(addHabits(habits));
+        })
+        .catch(error => {
+            console.log('post habit', error.message);
+        });
+    }, 3000)
 
 
     }
     
 
     const addStreakHandler = e => {
-        sethabitCounter(habitCounter+ 1);
+        setPoints(points + 10)
+        setHabits(habits.map(item =>{
+            if (item.id === habit.id ){
+                return{
+                    ...item, streak: item.streak+= 1, dailyStreak: item.dailyStreak+=1
+                }
+            }
+            return item;
+        }));
 
-        const streakplus= { id: habit.id, habitCounter: habitCounter+1, dailyStreak: dailyStreak+1};
-        const cb = {
-            method: 'PATCH',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(streakplus)
-        };
-        fetch("http://localhost:8001/habits/" + habit.id , cb)
-        setDailyStreak(dailyStreak+1)
+
+        dispatch(addStreak(habit.id, habit.streak, habit.dailyStreak))
+        
     }
         
     
-      const deleteStreakHandler = e => {
-    
-        sethabitCounter(0);
-        const streakminus= { id: habit.id, habitCounter: habitCounter-1};
-        const cb = {
-            method: 'PATCH',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(streakminus)
-        };
-        fetch("http://localhost:8001/habits/" + habit.id , cb)
-        setDailyStreak(0)
-      }
-
-
-
-       function consistency(){
-           return new Promise ((resolve, reject)=> {
-            if (dailyStreak > 0){
-                resolve("greater than 0")
+    const resetStreakHandler = e => {
+        setPoints(points - 5)
+        setHabits(habits.map(item =>{
+            if (item.id === habit.id ){
+                return{
+                    ...item, streak: item.streak= 0, dailyStreak: item.dailyStreak = 0
+                }
             }
-                if(dailyStreak< 1 &&habitCounter > 0){
-                reject("less than 1")
-                } 
-            
-        })
-       }
-     
-       consistency().then((message)=>{
-        console.log(message);
-        setTimeout(()=>{
-            setDailyStreak(0)
-            console.log("daily streak reset")
-        }, 30000)
-
-        })
-        .catch((error)=>{
-            if(dailyStreak< 1 && habitCounter> 0){
-                setTimeout(() => {
-                    
-                    sethabitCounter(0)
-                   
-                    console.log("all time streak reset")
-                    
-                }, 45000)  
-                  
-            }
-            console.log(error)
-        })
-
-        
+            return item;
+        }));
        
-         useEffect(() => {
-            const abortCont= new AbortController();
-            setInterval (()=> {
-                
-            }, 10000);
-            return () => abortCont.abort();
-        });
-    
-    
+        dispatch(deleteStreak(habit.id,habit.streak, habit.dailyStreak));
 
 
+
+    }
+
+    const resetDailyStreakHandler = e => {
+        setHabits(habits.map(item =>{
+            if (item.id === habit.id ){
+                return{
+                    ...item, dailyStreak: item.dailyStreak = 0
+                }
+            }
+            return item;
+        }));
+       
+        dispatch(deleteDailyStreak(habit.id, habit.dailyStreak));
+
+
+
+    }
+       
+    const startHour= moment().startOf('hour');
+    const endHour= moment().endOf('hour');
+    const endHourMinus= moment().endOf("").subtract(1000)
+    if (startHour.isBefore(moment()) && moment().isBefore( startHour.add(1000))){
+        console.log("start of hour")
+        console.log("start of hour")
+        console.log("start of hour")
+    
+        resetDailyStreakHandler();
+        
+       }
+       if (moment().isAfter(endHour.subtract(1000)) && moment().isBefore( endHour)){
+        console.log("END of hour")
+        console.log("END of hour")
+        console.log("END of hour")
+        console.log("END of hour")
+      
+        if(habit.dailyStreak == 0){
+            resetStreakHandler();
+        }
+       }
 
     return (
         <div className="habit">
@@ -106,12 +129,12 @@ const Habit = ({habitText, habits, setHabits, habit,habitId, habitInputText}) =>
             </button>
             <button 
                 className = "delete-btn"
-                onClick={ deleteStreakHandler}
+                onClick={ resetStreakHandler}
             >
                 <i className="fa fa-minus-circle fa-lg"/>
             </button>
             
-            <li  className={`habit-item ${dailyStreak > 0 ? "green": ""}`} >{`${habitText}     ` }<i className="fa fa-angle-right"/> {`${dailyStreak}`}</li>
+            <li key= {habit.id} className={`habit-item ${habit.dailyStreak > 0 ? "green": ""}`} >{`${habitText}     ` }<i className="fa fa-angle-right"/> {`${habit.dailyStreak}`}</li>
             <button 
                 className = "complete-btn"
                 onClick={addStreakHandler}
@@ -119,7 +142,7 @@ const Habit = ({habitText, habits, setHabits, habit,habitId, habitInputText}) =>
             >
                 <i className="fa fa-plus-circle fa-lg"/>
             </button>
-            <button className="streak-counter"> <i className="fa fa-angle-double-right"/>{`${habitCounter}`}</button>
+            <button className="streak-counter"> <i className="fa fa-angle-double-right"/>{`${habit.streak}`}</button>
 
            
             

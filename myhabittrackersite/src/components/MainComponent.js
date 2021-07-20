@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext, useState } from 'react';
 import { Switch, Route, Redirect, withRouter } from 'react-router-dom';
 import LoginForm from './login';
 import SignUpForm from './signup';
@@ -6,29 +6,22 @@ import Dashboard from './DashBoard';
 import Footer from './Footer'
 import LandingHeader from './LandingHeader';
 import Features from "./Features";
+import { AuthContext } from '../shared/auth-context';
 
 
 
-const LandingPage = () => {
-   
-    return (
-        <React.Fragment>
-            <LandingHeader/>
-            <Features/>
-        </React.Fragment>
-    );
-}
 
-const Main = () => {
-    
+
+const Main = ({routes }) => {
+    const auth = useContext(AuthContext)
+    const [isLoggedIn, setIsLoggedIn ] = useState(false);
+
+
+
     return (
         <React.Fragment>
         <Switch>
-            <Route exact path="/landingpage" render={() => <LandingPage/> }/>
-            <Route exact path="/dashboard" render={ () => <Dashboard/>} />
-            <Route exact path="/login" render={ () => <LoginForm/>} />
-            <Route exact path="/signup" render={ () => <SignUpForm/>} />
-            <Redirect to="/landingpage"/>
+           {routes}
         </Switch>
         <Footer/>
         </React.Fragment>

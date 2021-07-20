@@ -1,0 +1,92 @@
+todos:
+
+    {
+      "text": "new Todo",
+      "completed": true,
+      "user": "60f4cb89b2a86e7184095353"
+    },
+    {
+      "text": "go for walk",
+      "completed": false
+
+    },
+    {
+      "text": "drink smoothie",
+      "completed": true
+
+    },
+    {
+      "text": " take test",
+      "completed": false
+
+    }
+
+    habits:
+    {
+      "text": "drink water",
+      "streak": 0,
+      "dailyStreak": 0,
+       "user": "60f4cb89b2a86e7184095353"
+    },
+    {
+      "text": "jog ",
+      "streak": 0,
+      "dailyStreak": 0
+    },
+    {
+      "text": "study",
+      "streak": 0,
+      "dailyStreak": 0,
+    },
+    {
+      "text": "exercise ",
+      "streak": 0,
+      "dailyStreak": 0
+    },
+    {
+      "text": "read",
+      "streak": 0,
+      "dailyStreak": 0
+    }
+
+    rewards: 
+
+    {
+      "text": "movie night",
+      "cost": 200,
+       "user": "60f4cb89b2a86e7184095353"
+    },
+    {
+      "text": "free day off",
+      "cost": 300
+    },
+    {
+      "text": "starbucks",
+      "cost": 100
+    },
+    {
+      "text": "100 amazon dollar purchase",
+      "cost": 500
+    }
+
+    users:
+
+    {
+        "userName": "u4",
+        "points": 520,
+        "email": "test@test.com",
+        "password": "password",
+        "todos": "12",
+        "habits": "12",
+        "rewards": "12"
+    }
+    {
+        "userName": "u2",
+        "points": 5000,
+        "password": "password"
+    }
+    {
+        "userName": "u3",
+        "points": 520,
+        "password": "password"
+    }

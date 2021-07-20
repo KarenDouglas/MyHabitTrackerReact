@@ -1,6 +1,6 @@
 export const ADD_TODO = "ADD_TODO";
 export const ADD_TODOS = "ADD_TODOS";
-export const SET_NOTES = "SET_NOTES";
+export const SET_TODO = "SET_TODO";
 export  const TODOS_FAILED ="TODOS_FAILED"
 
 
@@ -13,6 +13,12 @@ export const addTodos = todos => ({
   payload: todos
 });
 
+export const setTodo = todos => ({
+  type:SET_TODO,
+  payload: todos
+});
+
+
 
 export const postTodo = (text, completed) => dispatch => {
   const newTodo = {
@@ -21,7 +27,7 @@ export const postTodo = (text, completed) => dispatch => {
   };
  // newTodo.completed= false;
 
-    return fetch( "http://localhost:8001/todos/", {
+    return fetch( "http://localhost:5000/todos", {
         method: "POST",
         body: JSON.stringify(newTodo),
         headers: {
@@ -43,7 +49,6 @@ export const postTodo = (text, completed) => dispatch => {
     .then(response => dispatch(addTodos(response)))
     .catch(error => {
         console.log('post comment', error.message);
-        alert('Your comment could not be posted\nError: ' + error.message);
     });
 };
 
@@ -71,7 +76,6 @@ export const completeTodo = (id, completed) => dispatch => {
     .then(response => dispatch(addTodos(response)))
     .catch(error => {
         console.log('post comment', error.message);
-        alert('Your comment could not be posted\nError: ' + error.message);
     });
 };
 
@@ -95,6 +99,53 @@ export const deleteTodo = (id) => dispatch => {
     .then(response => dispatch(addTodos(response)))
     .catch(error => {
         console.log('post comment', error.message);
-        alert('Your comment could not be posted\nError: ' + error.message);
+    });
+};
+
+export const saveTodos = () => async (dispatch, getState) => {
+
+  const todos = getState().todos;
+  await fetch( "http://localhost:8001/todos/", {
+        method: "POST",
+        body: JSON.stringify(todos),
+        headers: {
+            "Content-Type": "application/json"
+        }
+    })
+    alert("You just posted a new Todo!")
+}
+
+export const loadTodos = () =>  (dispatch, getState) => {
+
+  const todos = fetch( "http://localhost:8001/todos/").then(res => res.json)
+      dispatch (setTodo(todos))
+}
+
+
+export const fetchTodos = () => dispatch => {    
+   
+  return fetch("http://localhost:8001/todos/")
+  .then(response => {
+      if (response.ok) {
+          return response;
+      } else {
+          const error = new Error(`Error ${response.status}: ${response.statusText}`);
+          error.response = response;
+          throw error;
+      }
+  },
+  error => {
+      const errMess = new Error(error.message);
+      throw errMess;
+  }
+)
+      .then(response => response.json())
+      .then(todos => {
+        dispatch(addTodos(todos));
+        //setTodos(todos);
+      
+      })
+      .catch(error => {
+        console.log('post comment', error.message);
     });
 };

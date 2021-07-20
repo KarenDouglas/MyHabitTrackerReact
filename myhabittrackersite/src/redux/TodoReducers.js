@@ -1,4 +1,4 @@
-import {ADD_TODO, ADD_TODOS} from "../actions/actions"
+import {ADD_TODO, ADD_TODOS, SET_TODO} from "../actions/actions"
 
 
 
@@ -15,7 +15,9 @@ export const TodoReducers =  (state= initialState, action) =>{
         case ADD_TODOS:
             const todo = action.payload;
 
-            return {...state, todos: state.todos.concat(todo)}; 
+            return {...state, todos: state.todos.concat(todo)};
+        case SET_TODO:
+            return { ...state, todos: action.payload}
         default:
             return state;
     }

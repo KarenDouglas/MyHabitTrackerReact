@@ -3,7 +3,7 @@ import Todo from "./Todo"
 
 
 
-const  TodoBody= ({todos, setTodos,setTodosInputText, todosInputText }) => {
+const  TodoBody= ({todos, setTodos, points, setPoints, completed}) => {
     return (
         <div className="todo-container">
             <ul className ="todo-list">
@@ -14,6 +14,9 @@ const  TodoBody= ({todos, setTodos,setTodosInputText, todosInputText }) => {
                         key={todo.id}
                         todo={todo}
                         todoText={todo.text}
+                        points={points}
+                        setPoints={setPoints}
+                        completed={completed}
                     />
                 )) }
             </ul>        
